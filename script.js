@@ -1,40 +1,28 @@
+import  "https://www.vectary.com/viewer/v1/scripts/vctr-viewer.js";
 import { VctrApi } from "https://www.vectary.com/viewer-api/v1/api.js";
-let el=document.querySelector('vctr-viewer'),
-    id=el.getAttribute('model');
-el.id=id;
+const materialName='Default OBJ', //the name of the material to be changed
 
-async function run() {    
+    bar=document.querySelector('.texturebar');
 
-    function errHandler(err) {
-        console.log("API error", err);
-    }
-
-    async function onReady() {
-        console.log("API ready");
-        try {
-          
-            //Example
-            const props = {
-              "color": "#ff6666",
-              "roughness": 0.0,
-              "metalness": 1.0
-            }
-            console.log(await viewerApi.getMaterials())
-            await viewerApi.updateMaterial("Default OBJ", props);
-          
-        } catch (e) {
-            errHandler(e);
-        }
-    }
-
-    window.viewerApi = new VctrApi(id, errHandler);
-
-    try {
-        await viewerApi.init();        
-        onReady();
-    } catch (e) {
-        errHandler(e);
-    }
+    //const 
+function errHandler(err) {
+    console.log("API error", err);
 }
+window.viewerApi = new VctrApi('vctr', errHandler);
 
-run();
+try {
+    viewerApi.init()
+    .then(()=>{
+        bar.classList.remove('hidden');
+        return viewerApi.load();
+    }).then(()=>{
+        bar.classList.remove('disabled');
+        bar.addEventListener( 'click', function(e){
+            var targ=e.target;
+            viewerApi.updateMaterial(materialName, {map: e.target.src})
+        }, true )
+    });
+    console.log("API ready");
+} catch (e) {
+    errHandler(e);
+}

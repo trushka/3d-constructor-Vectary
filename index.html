@@ -1,13 +1,54 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"></script>
-  <script type="module" src="https://www.vectary.com/viewer/v1/scripts/vctr-viewer.js"></script>
+  <!-- <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"></script> -->
+  <script type="module" src="script.js"></script>
+	<style>
+		html, body{
+			height: 100%;
+		}
+		body {
+			display: flex;
+			background-color: #f0f0f0;
+			margin: 0px;
+			overflow: hidden;
+		}
+		.texturebar {
+			width:70px;
+			/* height:auto; */
+			padding:10px;
+			box-shadow: -5px 0 5px rgba(100,100,100,.5);
+			overflow: auto;
+			overflow-x: hidden;
+			transition: .5s;
+		}
+		.texturebar.disabled {
+			filter: sepia(1) grayscale(.5);
+			opacity: .75;
+		}
+		.texturebar.hidden {
+			visibility: hidden;
+			opacity: 0;
+			transform: translateX(100%);
+		}
+		.texturebar button, .texturebar img {width:100%; cursor: pointer}
+	</style>
 </head>
- <body>
-  <vctr-viewer 
-    model="b502bf1e-950d-4485-aba2-b1885084975a" 
-    enableApi="1" 
-  >
-  </vctr-viewer>
+<body>
+	<vctr-viewer id="vctr" model="b502bf1e-950d-4485-aba2-b1885084975a" enableApi="1" autoLoad="0" gestureHandling="superior">
+	</vctr-viewer>
+	<div class="texturebar hidden disabled">
+		<img src="images/crate.gif" alt="" >
+		<img src="images/disturb.jpg" alt="" >
+		<img src="images/land_ocean_ice_cloud_2048.jpg" alt="" >
+		<img src="images/marble_texture.jpg" alt="" >
+		<img src="images/water.jpg" alt="" >
+		<img src="images/ash_uvgrid01.jpg" alt="" >
+		<img src="images/lavatile.jpg" alt="" >
+		<img src="images/earth_normal_2048.jpg" alt="" >
+		<img src="images/earth_specular_2048.jpg" alt="" >
+		<img src="images/moon_1024.jpg" alt="" >
+		<img src="images/Lorem_ipsum_centered.svg" border=1>
+	</div>
 </body>
 </html>
