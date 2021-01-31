@@ -19,8 +19,9 @@ try {
         bar.classList.remove('disabled');
         bar.addEventListener( 'click', function(e){
             var targ=e.target;
-            viewerApi.updateMaterial(materialName, {map: e.target.src})
-        }, true )
+            viewerApi.updateMaterial(materialName, {map: targ.dataset.src})
+            viewerApi.setUUIDAr(targ.dataset.ar_id);
+       }, true )
     });
     console.log("API ready");
 } catch (e) {
