@@ -1,4 +1,4 @@
-import  "https://www.vectary.com/viewer/v1/scripts/vctr-viewer.js";
+//import  "https://www.vectary.com/viewer/v1/scripts/vctr-viewer.js";
 import { VctrApi } from "https://www.vectary.com/viewer-api/v1/api.js";
 const materialName='Default OBJ', //the name of the material to be changed
 
@@ -19,7 +19,7 @@ try {
         bar.classList.remove('disabled');
         bar.addEventListener( 'click', function(e){
             var targ=e.target;
-            viewerApi.updateMaterial(materialName, {map: targ.dataset.src})
+            viewerApi.updateMaterial(materialName, {map: new URL(targ.dataset.src, location.href)})
             viewerApi.setUUIDAr(targ.dataset.ar_id);
        }, true )
     });

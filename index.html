@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <!-- <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"></script> -->
   <script type="module" src="script.js"></script>
 	<style>
@@ -13,6 +14,10 @@
 			background-color: #f0f0f0;
 			margin: 0px;
 			overflow: hidden;
+		}
+		#vctr {
+			width:100%;
+			height:100%;
 		}
 		.texturebar {
 			width:70px;
@@ -36,8 +41,9 @@
 	</style>
 </head>
 <body>
-	<vctr-viewer id="vctr" model="b502bf1e-950d-4485-aba2-b1885084975a" enableApi="1" autoLoad="0" gestureHandling="superior">
-	</vctr-viewer>
+	<iframe id="vctr" border="0"
+	 src="https://www.vectary.com/viewer/v1/?model=64b67877-1d28-4871-b8bf-c36698c77b6b&enableApi=1&autoLoad=0&gestureHandling=superior">
+	</iframe>
 	<div class="texturebar hidden disabled">
 		<img src="images/BlueColor_m.png" data-src="images/BlueColor.jpg" data-ar_id="b502bf1e-950d-4485-aba2-b1885084975a" >
 		<img src="images/BrownColor_m.png" data-src="images/BrownColor.jpg" data-ar_id="695d90f5-57db-45e9-a93b-52771370d7c6" >
