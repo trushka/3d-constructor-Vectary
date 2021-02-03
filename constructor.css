@@ -139,6 +139,7 @@ h2 {text-align: center;}
 	border-radius:10px;
 	box-shadow: -1px -1px 3px -1px rgba(0, 0, 0, 0.7),
 		1px 1px 3px -1px rgba(255, 255, 255, 0.8);
+	cursor: pointer;
 }
 .texturebar img.active {outline:1px solid}
 #files {position:fixed; top:-100px}
